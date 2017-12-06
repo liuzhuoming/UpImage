@@ -1,0 +1,322 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DCCADE101FD7DA3000B05F6C /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */; };
+		DCF3BB311FD7924B00ACF8DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */; };
+		DCF3BB331FD7924B00ACF8DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */; };
+		DCF3BB361FD7924B00ACF8DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF3BB341FD7924B00ACF8DD /* MainMenu.xib */; };
+		DCF3BB431FD799CD00ACF8DD /* UploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF3BB411FD799CD00ACF8DD /* UploadViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		DCF3BB2D1FD7924B00ACF8DD /* UpImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DCF3BB351FD7924B00ACF8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		DCF3BB371FD7924B00ACF8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCF3BB381FD7924B00ACF8DD /* UpImage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = UpImage.entitlements; sourceTree = "<group>"; };
+		DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		DCF3BB411FD799CD00ACF8DD /* UploadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UploadViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DCF3BB2A1FD7924B00ACF8DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DCF3BB241FD7924B00ACF8DD = {
+			isa = PBXGroup;
+			children = (
+				DCF3BB2F1FD7924B00ACF8DD /* UpImage */,
+				DCF3BB2E1FD7924B00ACF8DD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DCF3BB2E1FD7924B00ACF8DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DCF3BB2D1FD7924B00ACF8DD /* UpImage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DCF3BB2F1FD7924B00ACF8DD /* UpImage */ = {
+			isa = PBXGroup;
+			children = (
+				DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */,
+				DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */,
+				DCF3BB411FD799CD00ACF8DD /* UploadViewController.xib */,
+				DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */,
+				DCF3BB341FD7924B00ACF8DD /* MainMenu.xib */,
+				DCF3BB371FD7924B00ACF8DD /* Info.plist */,
+				DCF3BB381FD7924B00ACF8DD /* UpImage.entitlements */,
+			);
+			path = UpImage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCF3BB2C1FD7924B00ACF8DD /* UpImage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DCF3BB3B1FD7924B00ACF8DD /* Build configuration list for PBXNativeTarget "UpImage" */;
+			buildPhases = (
+				DCF3BB291FD7924B00ACF8DD /* Sources */,
+				DCF3BB2A1FD7924B00ACF8DD /* Frameworks */,
+				DCF3BB2B1FD7924B00ACF8DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UpImage;
+			productName = UpImage;
+			productReference = DCF3BB2D1FD7924B00ACF8DD /* UpImage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCF3BB251FD7924B00ACF8DD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "卓明";
+				TargetAttributes = {
+					DCF3BB2C1FD7924B00ACF8DD = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = DCF3BB281FD7924B00ACF8DD /* Build configuration list for PBXProject "UpImage" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DCF3BB241FD7924B00ACF8DD;
+			productRefGroup = DCF3BB2E1FD7924B00ACF8DD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCF3BB2C1FD7924B00ACF8DD /* UpImage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DCF3BB2B1FD7924B00ACF8DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCF3BB331FD7924B00ACF8DD /* Assets.xcassets in Resources */,
+				DCF3BB431FD799CD00ACF8DD /* UploadViewController.xib in Resources */,
+				DCF3BB361FD7924B00ACF8DD /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DCF3BB291FD7924B00ACF8DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCCADE101FD7DA3000B05F6C /* UploadViewController.swift in Sources */,
+				DCF3BB311FD7924B00ACF8DD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DCF3BB341FD7924B00ACF8DD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DCF3BB351FD7924B00ACF8DD /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DCF3BB391FD7924B00ACF8DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DCF3BB3A1FD7924B00ACF8DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		DCF3BB3C1FD7924B00ACF8DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UpImage/UpImage.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 788RY9U2D2;
+				INFOPLIST_FILE = UpImage/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.lzming.UpImage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		DCF3BB3D1FD7924B00ACF8DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = UpImage/UpImage.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 788RY9U2D2;
+				INFOPLIST_FILE = UpImage/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cc.lzming.UpImage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DCF3BB281FD7924B00ACF8DD /* Build configuration list for PBXProject "UpImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF3BB391FD7924B00ACF8DD /* Debug */,
+				DCF3BB3A1FD7924B00ACF8DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCF3BB3B1FD7924B00ACF8DD /* Build configuration list for PBXNativeTarget "UpImage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCF3BB3C1FD7924B00ACF8DD /* Debug */,
+				DCF3BB3D1FD7924B00ACF8DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCF3BB251FD7924B00ACF8DD /* Project object */;
+}

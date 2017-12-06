@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="UploadViewController">
+            <connections>
+                <outlet property="btnAdd" destination="JCk-04-2Kx" id="eJn-Gd-Ixw"/>
+                <outlet property="imageView" destination="LpW-9z-Sl8" id="CwC-v7-sTq"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="230" height="219"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="JCk-04-2Kx">
+                    <rect key="frame" x="91" y="127" width="48" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="8Kb-kY-Mcf"/>
+                        <constraint firstAttribute="width" constant="48" id="X2d-Uo-YiX"/>
+                    </constraints>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="addImage" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="9eu-zc-DV1">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="addImageAction:" target="-2" id="4Wz-EJ-OAq"/>
+                    </connections>
+                </button>
+                <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LpW-9z-Sl8">
+                    <rect key="frame" x="0.0" y="76" width="230" height="143"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="230" id="811-R0-JG2"/>
+                        <constraint firstAttribute="height" constant="143" id="o61-1l-vss"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5Zp-Pt-xDk"/>
+                </imageView>
+                <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-Cf-e6U">
+                    <rect key="frame" x="0.0" y="0.0" width="230" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <view key="contentView" ambiguous="YES" id="3yk-s8-FeF">
+                        <rect key="frame" x="1" y="1" width="228" height="58"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="LpW-9z-Sl8" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Aey-jR-vKj"/>
+                <constraint firstItem="LpW-9z-Sl8" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Eh2-te-q6x"/>
+                <constraint firstItem="JCk-04-2Kx" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="44" id="pEn-O7-byk"/>
+                <constraint firstItem="JCk-04-2Kx" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="tw2-HQ-818"/>
+            </constraints>
+            <point key="canvasLocation" x="-906" y="147.5"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="addImage" width="60" height="60"/>
+    </resources>
+</document>
