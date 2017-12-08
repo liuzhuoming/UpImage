@@ -8,18 +8,34 @@
 
 import Cocoa
 
+enum NSPopoverEvent:String {
+    case open = "NSPopoverEvent.open"
+    case close = "NSPopoverEvent.close"
+}
+
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate,NSPopoverDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    var statuItem : NSStatusItem!
+    public var statuItem : NSStatusItem!
     var popview : NSPopover!
     var uploadViewController:NSViewController?
+    var popoverTransiencyMonitor :AnyObject?
     
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         self.addStatuItem();
+        
+        
+        UploadManager.shareManager.caculateTencentSign();
+        
+        weak var weakSelf = self
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: NSPopoverEvent.open.rawValue), object: nil, queue: OperationQueue.main) { (noti) in
+            weakSelf?.openPopover(btn: (weakSelf?.statuItem.button)!)
+        }
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: NSPopoverEvent.close.rawValue), object: nil, queue: OperationQueue.main) { (noti) in
+            weakSelf?.closePopover()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -31,28 +47,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.statuItem = statubar.statusItem(withLength: NSStatusItem.squareLength)
         self.statuItem.image = NSImage.init(named: NSImage.Name(rawValue: "upload"))
         self.statuItem.toolTip = "拖拽图片到图标附近即可上传"
-//        self.statuItem.action = #selector(statuAction)
-        self.statuItem.button?.action = #selector(statuAction(btn:))
-        
-    }
-
-    
-    @objc func statuAction(btn:NSButton) -> Void {
-        print("statuAction")
+        self.statuItem.button?.action = #selector(openPopover(btn:))
         if self.uploadViewController == nil  {
-//            self.UploadViewController = NSViewController(nibName: NSNib.Name(rawValue: "UploadViewController"), bundle: Bundle.main)
             self.uploadViewController = UploadViewController(nibName: NSNib.Name(rawValue: "UploadViewController"), bundle: Bundle.main)
         }
         if self.popview == nil {
             self.popview = NSPopover()
             self.popview.appearance = NSAppearance(appearanceNamed: NSAppearance.Name.aqua, bundle: nil)
             self.popview.contentViewController = self.uploadViewController
-            self.popview.behavior = NSPopover.Behavior.semitransient
+            self.popview.behavior = NSPopover.Behavior.transient
             self.popview.contentSize = CGSize(width: 230, height: 219)
+            self.popview.delegate = self
         }
-//        NSApplication.shared.activate(ignoringOtherApps: true)
-        self.popview.show(relativeTo:btn.bounds, of: btn, preferredEdge: NSRectEdge.maxY)
+
     }
+
+    
+    @objc func openPopover(btn:NSButton) -> Void {
+        print("statuAction")
+        self.popview.show(relativeTo:btn.bounds, of: btn, preferredEdge: NSRectEdge.maxY)
+
+        self.popoverTransiencyMonitor = NSEvent.addGlobalMonitorForEvents(matching: [NSEvent.EventTypeMask.leftMouseDown,NSEvent.EventTypeMask.rightMouseDown], handler: { (event) in
+            self.closePopover()
+        }) as AnyObject
+    }
+    
+    @objc func closePopover() -> Void {
+        if let popEvent = self.popoverTransiencyMonitor {
+            NSEvent.removeMonitor(popEvent)
+            self.popoverTransiencyMonitor = nil
+             self.popview.close()
+        }
+       
+    }
+    
 
 }
 

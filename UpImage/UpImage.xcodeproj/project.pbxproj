@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BBBC411C249B5E40F44AC4A /* Pods_UpImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4063F07C345E9C7BF94A3D4 /* Pods_UpImage.framework */; };
+		DCAA0ECD1FDA81EF00D81611 /* StringURLEncoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0ECC1FDA81EF00D81611 /* StringURLEncoded.swift */; };
 		DCCADE101FD7DA3000B05F6C /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */; };
+		DCE09C9F1FD918DC00D37204 /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09C9E1FD918DC00D37204 /* UploadManager.swift */; };
+		DCE09CA11FD91E0000D37204 /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09CA01FD91E0000D37204 /* SettingManager.swift */; };
+		DCE09CA91FD93AE400D37204 /* StringEncrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09CA81FD93AE400D37204 /* StringEncrypt.swift */; };
 		DCF3BB311FD7924B00ACF8DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */; };
 		DCF3BB331FD7924B00ACF8DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */; };
 		DCF3BB361FD7924B00ACF8DD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF3BB341FD7924B00ACF8DD /* MainMenu.xib */; };
@@ -15,6 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DB2A72B33C55680082E7DBB /* Pods-UpImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpImage/Pods-UpImage.debug.xcconfig"; sourceTree = "<group>"; };
+		9D389DF669045C989D7C60A2 /* Pods-UpImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpImage/Pods-UpImage.release.xcconfig"; sourceTree = "<group>"; };
+		C4063F07C345E9C7BF94A3D4 /* Pods_UpImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCAA0ECC1FDA81EF00D81611 /* StringURLEncoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringURLEncoded.swift; sourceTree = "<group>"; };
+		DCE09C9E1FD918DC00D37204 /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
+		DCE09CA01FD91E0000D37204 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
+		DCE09CA21FD939B700D37204 /* UpImage-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UpImage-Bridging-Header.h"; sourceTree = "<group>"; };
+		DCE09CA81FD93AE400D37204 /* StringEncrypt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEncrypt.swift; sourceTree = "<group>"; };
 		DCF3BB2D1FD7924B00ACF8DD /* UpImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BBBC411C249B5E40F44AC4A /* Pods_UpImage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BF4E334A7DD5E5AEB7F06B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4063F07C345E9C7BF94A3D4 /* Pods_UpImage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D5A0F2D9728D587734796EA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2DB2A72B33C55680082E7DBB /* Pods-UpImage.debug.xcconfig */,
+				9D389DF669045C989D7C60A2 /* Pods-UpImage.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DCF3BB241FD7924B00ACF8DD = {
 			isa = PBXGroup;
 			children = (
 				DCF3BB2F1FD7924B00ACF8DD /* UpImage */,
 				DCF3BB2E1FD7924B00ACF8DD /* Products */,
+				D5A0F2D9728D587734796EA1 /* Pods */,
+				3BF4E334A7DD5E5AEB7F06B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +88,18 @@
 		DCF3BB2F1FD7924B00ACF8DD /* UpImage */ = {
 			isa = PBXGroup;
 			children = (
-				DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */,
 				DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */,
+				DCE09C9E1FD918DC00D37204 /* UploadManager.swift */,
+				DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */,
+				DCE09CA01FD91E0000D37204 /* SettingManager.swift */,
+				DCAA0ECC1FDA81EF00D81611 /* StringURLEncoded.swift */,
+				DCE09CA81FD93AE400D37204 /* StringEncrypt.swift */,
 				DCF3BB411FD799CD00ACF8DD /* UploadViewController.xib */,
 				DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */,
 				DCF3BB341FD7924B00ACF8DD /* MainMenu.xib */,
 				DCF3BB371FD7924B00ACF8DD /* Info.plist */,
 				DCF3BB381FD7924B00ACF8DD /* UpImage.entitlements */,
+				DCE09CA21FD939B700D37204 /* UpImage-Bridging-Header.h */,
 			);
 			path = UpImage;
 			sourceTree = "<group>";
@@ -73,9 +111,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCF3BB3B1FD7924B00ACF8DD /* Build configuration list for PBXNativeTarget "UpImage" */;
 			buildPhases = (
+				1AEE08C7C1409580594B48DB /* [CP] Check Pods Manifest.lock */,
 				DCF3BB291FD7924B00ACF8DD /* Sources */,
 				DCF3BB2A1FD7924B00ACF8DD /* Frameworks */,
 				DCF3BB2B1FD7924B00ACF8DD /* Resources */,
+				D5E607C7471C5EAB6652AB22 /* [CP] Embed Pods Frameworks */,
+				75051E6FFBA3D50A27ED8058 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -98,6 +139,7 @@
 				TargetAttributes = {
 					DCF3BB2C1FD7924B00ACF8DD = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -133,13 +175,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1AEE08C7C1409580594B48DB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		75051E6FFBA3D50A27ED8058 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UpImage/Pods-UpImage-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D5E607C7471C5EAB6652AB22 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UpImage/Pods-UpImage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DCF3BB291FD7924B00ACF8DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCE09CA91FD93AE400D37204 /* StringEncrypt.swift in Sources */,
+				DCAA0ECD1FDA81EF00D81611 /* StringURLEncoded.swift in Sources */,
+				DCE09CA11FD91E0000D37204 /* SettingManager.swift in Sources */,
 				DCCADE101FD7DA3000B05F6C /* UploadViewController.swift in Sources */,
 				DCF3BB311FD7924B00ACF8DD /* AppDelegate.swift in Sources */,
+				DCE09C9F1FD918DC00D37204 /* UploadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,8 +359,10 @@
 		};
 		DCF3BB3C1FD7924B00ACF8DD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2DB2A72B33C55680082E7DBB /* Pods-UpImage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UpImage/UpImage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -275,14 +371,18 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.lzming.UpImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UpImage/UpImage-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		DCF3BB3D1FD7924B00ACF8DD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D389DF669045C989D7C60A2 /* Pods-UpImage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = UpImage/UpImage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -291,6 +391,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cc.lzming.UpImage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UpImage/UpImage-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 			};
 			name = Release;

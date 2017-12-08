@@ -3,25 +3,28 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="UploadViewController">
             <connections>
                 <outlet property="btnAdd" destination="JCk-04-2Kx" id="eJn-Gd-Ixw"/>
+                <outlet property="btnSetting" destination="zqb-Zu-Skk" id="tZN-ze-64p"/>
+                <outlet property="btnStatu" destination="cQI-ws-kai" id="m9C-IC-5Dd"/>
+                <outlet property="btnUpload" destination="uEM-94-S57" id="new-Eh-oPV"/>
                 <outlet property="imageView" destination="LpW-9z-Sl8" id="CwC-v7-sTq"/>
+                <outlet property="progress" destination="TMV-00-oT4" id="XoR-Kn-Jmw"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="230" height="219"/>
+            <rect key="frame" x="0.0" y="0.0" width="230" height="214"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button translatesAutoresizingMaskIntoConstraints="NO" id="JCk-04-2Kx">
-                    <rect key="frame" x="91" y="127" width="48" height="48"/>
+                    <rect key="frame" x="91" y="122" width="48" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="8Kb-kY-Mcf"/>
                         <constraint firstAttribute="width" constant="48" id="X2d-Uo-YiX"/>
@@ -35,29 +38,68 @@
                     </connections>
                 </button>
                 <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LpW-9z-Sl8">
-                    <rect key="frame" x="0.0" y="76" width="230" height="143"/>
+                    <rect key="frame" x="0.0" y="71" width="230" height="143"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="230" id="811-R0-JG2"/>
                         <constraint firstAttribute="height" constant="143" id="o61-1l-vss"/>
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5Zp-Pt-xDk"/>
                 </imageView>
-                <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-Cf-e6U">
-                    <rect key="frame" x="0.0" y="0.0" width="230" height="60"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <view key="contentView" ambiguous="YES" id="3yk-s8-FeF">
-                        <rect key="frame" x="1" y="1" width="228" height="58"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                </box>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uEM-94-S57">
+                    <rect key="frame" x="-27" y="34" width="284" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="284" id="eSO-HW-h2u"/>
+                        <constraint firstAttribute="height" constant="36" id="yz2-DE-auY"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" title="upload" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="105-Gi-e9d">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="uploadAction:" target="-2" id="LLj-bj-6rU"/>
+                    </connections>
+                </button>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zqb-Zu-Skk">
+                    <rect key="frame" x="-27" y="-1" width="284" height="38"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="284" id="dd2-7v-Yfi"/>
+                        <constraint firstAttribute="height" constant="36" id="fN0-CY-aJB"/>
+                    </constraints>
+                    <buttonCell key="cell" type="smallSquare" title="Setting" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tdT-Oa-Kgl">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="TMV-00-oT4">
+                    <rect key="frame" x="0.0" y="64" width="230" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="230" id="jxR-uw-3Qu"/>
+                    </constraints>
+                </progressIndicator>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cQI-ws-kai">
+                    <rect key="frame" x="102" y="177" width="26" height="17"/>
+                    <buttonCell key="cell" type="inline" title="no" bezelStyle="inline" alignment="center" state="on" borderStyle="border" inset="2" id="eaQ-4p-aat">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="smallSystemBold"/>
+                    </buttonCell>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="zqb-Zu-Skk" firstAttribute="trailing" secondItem="uEM-94-S57" secondAttribute="trailing" id="1eI-3E-cE8"/>
+                <constraint firstItem="TMV-00-oT4" firstAttribute="centerX" secondItem="uEM-94-S57" secondAttribute="centerX" id="3F3-TR-9LB"/>
+                <constraint firstItem="cQI-ws-kai" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="8FO-M8-dse"/>
                 <constraint firstItem="LpW-9z-Sl8" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Aey-jR-vKj"/>
                 <constraint firstItem="LpW-9z-Sl8" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Eh2-te-q6x"/>
+                <constraint firstAttribute="bottom" secondItem="zqb-Zu-Skk" secondAttribute="bottom" id="HKE-Ha-Alx"/>
+                <constraint firstItem="cQI-ws-kai" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="OgO-HT-q7j"/>
+                <constraint firstItem="uEM-94-S57" firstAttribute="centerX" secondItem="LpW-9z-Sl8" secondAttribute="centerX" id="SQe-Il-xig"/>
+                <constraint firstItem="uEM-94-S57" firstAttribute="top" secondItem="TMV-00-oT4" secondAttribute="bottom" constant="-6" id="Yfx-BS-hQG"/>
+                <constraint firstItem="zqb-Zu-Skk" firstAttribute="leading" secondItem="uEM-94-S57" secondAttribute="leading" id="ZCc-cH-X00"/>
+                <constraint firstItem="zqb-Zu-Skk" firstAttribute="top" secondItem="uEM-94-S57" secondAttribute="bottom" constant="-1" id="lj9-UM-C9X"/>
                 <constraint firstItem="JCk-04-2Kx" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="44" id="pEn-O7-byk"/>
                 <constraint firstItem="JCk-04-2Kx" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="tw2-HQ-818"/>
             </constraints>
-            <point key="canvasLocation" x="-906" y="147.5"/>
+            <point key="canvasLocation" x="-1096" y="128"/>
         </customView>
     </objects>
     <resources>

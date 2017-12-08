@@ -1,0 +1,6 @@
+framework module Pods_UpImage {
+  umbrella header "Pods-UpImage-umbrella.h"
+
+  export *
+  module * { export * }
+}
