@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class UploadViewController: NSViewController {
+class UploadViewController: NSViewController , NSDrawerDelegate {
 
     @IBOutlet weak var btnStatu: NSButton!
     @IBOutlet weak var btnAdd: NSButton!
@@ -16,12 +16,49 @@ class UploadViewController: NSViewController {
     @IBOutlet weak var btnUpload: NSButton!
     @IBOutlet weak var imageView: NSImageView!
     @IBOutlet weak var progress: NSProgressIndicator!
-    
+    //临时参数
     var urlSelect:URL?
+    var SettingVC : SettingViewController?
+    var SettingWindow : NSWindowController?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initUI()
     }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        
+        // 获取粘贴板
+        let pasteboard = NSPasteboard.general
+        if let data = pasteboard.readObjects(forClasses: [NSURL.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
+            // 过滤，其中的图片
+            data.forEach({ (url) in
+                    print(url)
+                if let imageSelect = NSImage(contentsOf: url as! URL){
+                        self.imageView.image = imageSelect
+                        self.imageView.isHidden = false
+                        self.btnAdd.isHidden = true
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue:NSPopoverEvent.open.rawValue), object: nil)
+                        self.urlSelect = url as? URL
+                    }else{
+                        print("类型不对")
+                    }
+            })
+        }
+        
+        
+//        NSArray *urls = [[[NSPasteboard generalPasteboard] readObjectsForClasses:@[[NSURL class]] options:@{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)}] valueForKey:@"path"];
+//        NSLog(@"%@", urls);
+        
+        
+        
+        
+    }
+    
+    
     func initUI() -> Void {
         self.btnAdd.focusRingType = .none
         self.btnSetting.focusRingType = .none
@@ -98,6 +135,24 @@ class UploadViewController: NSViewController {
             }
         }
     }
+    
+    /// 设置action
+    ///
+    /// - Parameter sender: Setting button
+    @IBAction func SettingAction(_ sender: NSButton) {
+        
+        if self.SettingWindow == nil {
+            let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "Main"), bundle: nil)
+            guard let settingWC = storyboard.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "SettingWindowController")) as? NSWindowController else {
+                fatalError("Error getting SettingWindowController ")
+                
+                
+            }
+            self.SettingWindow = settingWC;
+        }
+        self.SettingWindow?.showWindow(self);
+    }
+    
     
     func showStatu(statu:String) -> Void {
         self.btnStatu.title = statu

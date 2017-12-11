@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3BBBC411C249B5E40F44AC4A /* Pods_UpImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4063F07C345E9C7BF94A3D4 /* Pods_UpImage.framework */; };
+		DC7CF7281FDAAE5D00723985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC7CF7271FDAAE5D00723985 /* Main.storyboard */; };
+		DC7CF72A1FDE2A7A00723985 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7CF7291FDE2A7A00723985 /* SettingViewController.swift */; };
 		DCAA0ECD1FDA81EF00D81611 /* StringURLEncoded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAA0ECC1FDA81EF00D81611 /* StringURLEncoded.swift */; };
 		DCCADE101FD7DA3000B05F6C /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */; };
 		DCE09C9F1FD918DC00D37204 /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCE09C9E1FD918DC00D37204 /* UploadManager.swift */; };
@@ -23,6 +25,8 @@
 		2DB2A72B33C55680082E7DBB /* Pods-UpImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpImage.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UpImage/Pods-UpImage.debug.xcconfig"; sourceTree = "<group>"; };
 		9D389DF669045C989D7C60A2 /* Pods-UpImage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UpImage.release.xcconfig"; path = "Pods/Target Support Files/Pods-UpImage/Pods-UpImage.release.xcconfig"; sourceTree = "<group>"; };
 		C4063F07C345E9C7BF94A3D4 /* Pods_UpImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UpImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7CF7271FDAAE5D00723985 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DC7CF7291FDE2A7A00723985 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		DCAA0ECC1FDA81EF00D81611 /* StringURLEncoded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringURLEncoded.swift; sourceTree = "<group>"; };
 		DCE09C9E1FD918DC00D37204 /* UploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		DCE09CA01FD91E0000D37204 /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
@@ -88,18 +92,20 @@
 		DCF3BB2F1FD7924B00ACF8DD /* UpImage */ = {
 			isa = PBXGroup;
 			children = (
-				DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */,
-				DCE09C9E1FD918DC00D37204 /* UploadManager.swift */,
 				DCF3BB301FD7924B00ACF8DD /* AppDelegate.swift */,
+				DCF3BB401FD799CD00ACF8DD /* UploadViewController.swift */,
+				DCF3BB411FD799CD00ACF8DD /* UploadViewController.xib */,
+				DC7CF7291FDE2A7A00723985 /* SettingViewController.swift */,
+				DCE09C9E1FD918DC00D37204 /* UploadManager.swift */,
 				DCE09CA01FD91E0000D37204 /* SettingManager.swift */,
 				DCAA0ECC1FDA81EF00D81611 /* StringURLEncoded.swift */,
 				DCE09CA81FD93AE400D37204 /* StringEncrypt.swift */,
-				DCF3BB411FD799CD00ACF8DD /* UploadViewController.xib */,
 				DCF3BB321FD7924B00ACF8DD /* Assets.xcassets */,
 				DCF3BB341FD7924B00ACF8DD /* MainMenu.xib */,
 				DCF3BB371FD7924B00ACF8DD /* Info.plist */,
 				DCF3BB381FD7924B00ACF8DD /* UpImage.entitlements */,
 				DCE09CA21FD939B700D37204 /* UpImage-Bridging-Header.h */,
+				DC7CF7271FDAAE5D00723985 /* Main.storyboard */,
 			);
 			path = UpImage;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 				DCF3BB331FD7924B00ACF8DD /* Assets.xcassets in Resources */,
 				DCF3BB431FD799CD00ACF8DD /* UploadViewController.xib in Resources */,
 				DCF3BB361FD7924B00ACF8DD /* MainMenu.xib in Resources */,
+				DC7CF7281FDAAE5D00723985 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +240,7 @@
 				DCE09CA11FD91E0000D37204 /* SettingManager.swift in Sources */,
 				DCCADE101FD7DA3000B05F6C /* UploadViewController.swift in Sources */,
 				DCF3BB311FD7924B00ACF8DD /* AppDelegate.swift in Sources */,
+				DC7CF72A1FDE2A7A00723985 /* SettingViewController.swift in Sources */,
 				DCE09C9F1FD918DC00D37204 /* UploadManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -69,6 +69,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="SettingAction:" target="-2" id="lOs-x8-VFQ"/>
+                    </connections>
                 </button>
                 <progressIndicator wantsLayer="YES" maxValue="1" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="TMV-00-oT4">
                     <rect key="frame" x="0.0" y="64" width="230" height="20"/>
@@ -99,7 +102,7 @@
                 <constraint firstItem="JCk-04-2Kx" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="44" id="pEn-O7-byk"/>
                 <constraint firstItem="JCk-04-2Kx" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="tw2-HQ-818"/>
             </constraints>
-            <point key="canvasLocation" x="-1096" y="128"/>
+            <point key="canvasLocation" x="-1114" y="-80"/>
         </customView>
     </objects>
     <resources>
