@@ -49,7 +49,7 @@ class SettingManager: NSObject {
         }
         print(setting);
         
-        if let tcDict = setting["tencent"] {
+        if let tcDict = setting["Tencent"] {
             
             self.tencentSetting = Tencent(region: tcDict["region"] as! String,
                                           version: tcDict["version"]as! String,
@@ -58,9 +58,6 @@ class SettingManager: NSObject {
                                           dirName: tcDict["dirName"]as! String,
                                           secret_id:tcDict["secret_id"]as!String,
                                           secret_key:tcDict["secret_key"]as!String )
-        }else{
-            // 临时插入一个我的
-            self.tencentSetting = Tencent(region: "gz", version: "v2", appid: "1255605989", bucketName: "note", dirName: "" , secret_id:"AKIDXI7mFIW4kGAutn5HyYxSt9FvWxGRrIF8" ,secret_key: "41nTyHUaWHsNiy3xgEetxqa9XkmcQfqs")
         }
         
         super.init()

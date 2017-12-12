@@ -43,6 +43,9 @@ class SettingViewController: NSViewController {
            self.tfSecret_id.stringValue.count>0 ,
            self.tfSecret_key.stringValue.count>0,
            self.region.stringValue.count>0{
+            if SettingManager.shareManager.tencentSetting == nil {
+                SettingManager.shareManager.tencentSetting = Tencent(region: "", version: "", appid: "", bucketName: "", dirName: "", secret_id: "", secret_key: "")
+            }
             SettingManager.shareManager.tencentSetting?.appid = self.tfAppID.stringValue
             SettingManager.shareManager.tencentSetting?.region = self.region.stringValue
             SettingManager.shareManager.tencentSetting?.bucketName = self.tfBucketName.stringValue

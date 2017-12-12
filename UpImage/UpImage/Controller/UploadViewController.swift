@@ -18,6 +18,9 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
     @IBOutlet weak var progress: NSProgressIndicator!
     //临时参数
     var urlSelect:URL?
+    var imageData:NSData?
+    var fileName :String?
+    
     var SettingVC : SettingViewController?
     var SettingWindow : NSWindowController?
     
@@ -33,6 +36,7 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
         
         // 获取粘贴板
         let pasteboard = NSPasteboard.general
+        // 1、优先获取本地图片
         if let data = pasteboard.readObjects(forClasses: [NSURL.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
             // 过滤，其中的图片
             data.forEach({ (url) in
@@ -43,18 +47,27 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
                         self.btnAdd.isHidden = true
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue:NSPopoverEvent.open.rawValue), object: nil)
                         self.urlSelect = url as? URL
+                        return;
                     }else{
                         print("类型不对")
+                        self.showStatu(statu: "类型不对")
                     }
             })
         }
-        
-        
-//        NSArray *urls = [[[NSPasteboard generalPasteboard] readObjectsForClasses:@[[NSURL class]] options:@{NSPasteboardURLReadingFileURLsOnlyKey: @(YES)}] valueForKey:@"path"];
-//        NSLog(@"%@", urls);
-        
-        
-        
+        // 再获取是否有图片 （网络？）
+        if let imageArr = pasteboard.readObjects(forClasses: [NSImage.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
+            print(imageArr.count)
+            imageArr.forEach({ (imageData) in
+                if imageData is NSImage{
+                    if let image = imageData as? NSImage{
+                        self.imageView.image = image
+                        self.imageView.isHidden = false
+                        self.imageData = image.tiffRepresentation! as NSData
+                    }
+                }
+            })
+            
+        }
         
     }
     
@@ -83,9 +96,6 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
             guard let data = notification.userInfo as? [String:String]else{return}
             
             self.showStatu(statu: "上传成功")
-//            NSPasteboard *paste = [NSPasteboard generalPasteboard];
-//            [paste clearContents];
-//            [paste writeObjects:@[@"123"]];
             let source_url = data["source_url"]
             let pasteboard = NSPasteboard.general
             pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
@@ -95,8 +105,12 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue:KNotificationName.uploadFailure.rawValue), object: nil, queue: OperationQueue.main) { (notification) in
-
-            self.showStatu(statu: "上传失败")
+            guard let data = notification.userInfo as? [String:String]else{return}
+            guard let info = data["info"] else {
+                self.showStatu(statu: "上传失败")
+                return
+            }
+            self.showStatu(statu: info)
             
         }
         
@@ -108,6 +122,10 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
                     self.progress.doubleValue = progress
                 })
             }
+        }else if self.imageData != nil{
+            UploadManager.shareManager.uploadToTencent(data: self.imageData!, fileName: "", progressCallback: { (progress) in
+                self.progress.doubleValue = progress
+            })
         }else{
             self.showStatu(statu: "请选择文件")
         }

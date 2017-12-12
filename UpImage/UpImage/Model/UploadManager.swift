@@ -35,11 +35,14 @@ class UploadManager: NSObject {
             print("签名成功"+signString);
             // 根据配置生成host
             guard let host = SettingManager.shareManager.tencentSetting?.hosturl else{
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadFailure.rawValue), object: nil, userInfo: ["info":"腾讯配置出错"])
                 print("腾讯配置出错");
                 return;
             }
+            // 如果文件名没有就随机生成
+            let imageName = fileName.count<1 ? (self.randomString(length: 10)+".jpg") :fileName
             // 生成随机文件名
-            var url = host+self.randomString(length: 10)+"$$$"+fileName
+            var url = host+self.randomString(length: 10)+"$$$"+imageName
             url = url.urlEncoded()
             print("url \(url)")
             // Alamofire
