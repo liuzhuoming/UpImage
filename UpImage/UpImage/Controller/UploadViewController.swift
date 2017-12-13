@@ -33,18 +33,34 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        
+        self.progress.doubleValue = 0
         // 获取粘贴板
         let pasteboard = NSPasteboard.general
-        // 1、优先获取本地图片
-        if let data = pasteboard.readObjects(forClasses: [NSURL.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
+        
+        // 1、再获取是否有图片 （网络？）
+        if let imageArr = pasteboard.readObjects(forClasses: [NSImage.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
+            print(imageArr.count)
+            imageArr.forEach({ (imageData) in
+                print("imageArr count \(imageArr.count)")
+                if imageData is NSImage{
+                    if let image = imageData as? NSImage{
+                        self.imageView.image = image
+                        self.imageView.isHidden = false
+                        self.imageData = image.tiffRepresentation! as NSData
+                    }
+                }
+            })
+        }
+        
+        // 2、获取本地图片
+        if let dataArr = pasteboard.readObjects(forClasses: [NSURL.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
             // 过滤，其中的图片
-            data.forEach({ (url) in
+            print("dataArr count \(dataArr.count)")
+            dataArr.forEach({ (url) in
                     print(url)
-                if let imageSelect = NSImage(contentsOf: url as! URL){
+                    if let imageSelect = NSImage(contentsOf: url as! URL){
                         self.imageView.image = imageSelect
                         self.imageView.isHidden = false
-                        self.btnAdd.isHidden = true
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue:NSPopoverEvent.open.rawValue), object: nil)
                         self.urlSelect = url as? URL
                         return;
@@ -54,20 +70,8 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
                     }
             })
         }
-        // 再获取是否有图片 （网络？）
-        if let imageArr = pasteboard.readObjects(forClasses: [NSImage.self], options: [NSPasteboard.ReadingOptionKey.urlReadingFileURLsOnly:true]) {
-            print(imageArr.count)
-            imageArr.forEach({ (imageData) in
-                if imageData is NSImage{
-                    if let image = imageData as? NSImage{
-                        self.imageView.image = image
-                        self.imageView.isHidden = false
-                        self.imageData = image.tiffRepresentation! as NSData
-                    }
-                }
-            })
-            
-        }
+        
+        // 清除数据
         
     }
     
@@ -96,10 +100,16 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
             guard let data = notification.userInfo as? [String:String]else{return}
             
             self.showStatu(statu: "上传成功")
-            let source_url = data["source_url"]
+            var source_url = data["source_url"]
+            source_url = source_url?.urlDecoded()
             let pasteboard = NSPasteboard.general
             pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
-            pasteboard.setString(source_url!, forType: NSPasteboard.PasteboardType.string)
+            if SettingManager.shareManager.isMarkdown ==  true{
+                 pasteboard.setString("![imageName](\(source_url!))", forType: NSPasteboard.PasteboardType.string)
+            }else{
+                pasteboard.setString(source_url!, forType: NSPasteboard.PasteboardType.string)
+            }
+            
             
             
         }
@@ -132,6 +142,12 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
         
     }
     @IBAction func addImageAction(_ sender: NSButton) {
+        
+       
+        let pb = NSPasteboard.general
+       pb.clearContents()
+        
+        
         let open = NSOpenPanel()
         open.canChooseFiles = true
         open.canChooseDirectories = false
@@ -143,7 +159,7 @@ class UploadViewController: NSViewController , NSDrawerDelegate {
                     if let imageSelect = NSImage(contentsOf: url){
                         self.imageView.image = imageSelect
                         self.imageView.isHidden = false
-                        self.btnAdd.isHidden = true
+                        
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue:NSPopoverEvent.open.rawValue), object: nil)
                         self.urlSelect = url
                     }else{

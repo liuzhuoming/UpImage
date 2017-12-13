@@ -32,6 +32,7 @@ class SettingViewController: NSViewController {
             self.tfSecret_id.stringValue = (SettingManager.shareManager.tencentSetting?.secret_id)!
             self.tfSecret_key.stringValue = (SettingManager.shareManager.tencentSetting?.secret_key)!
             self.tfDir.stringValue = (SettingManager.shareManager.tencentSetting?.dirName)!
+            self.isMarkdown.state = SettingManager.shareManager.isMarkdown==true ? .on:.off
         }
         
     }
@@ -54,6 +55,8 @@ class SettingViewController: NSViewController {
             SettingManager.shareManager.tencentSetting?.dirName = self.tfDir.stringValue
             SettingManager.shareManager.tencentSetting?.version = "v2"
             SettingManager.shareManager.save();
+            UserDefaults.standard.set(self.isMarkdown.state == .on, forKey: "MarkDown")
+            SettingManager.shareManager.isMarkdown = self.isMarkdown.state == .on
             self.showStatu(statu: "保存成功")
             
         }else{

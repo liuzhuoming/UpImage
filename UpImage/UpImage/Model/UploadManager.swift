@@ -59,31 +59,34 @@ class UploadManager: NSObject {
              method: HTTPMethod.post,
              headers: defaultHeaders,
              encodingCompletion: { (encodingResult) in
-                switch encodingResult {
-                case .success(let upload, _, _):
-                    upload.uploadProgress { progress in
-                        print(progress)
-//                        progressCallback(progress.fractionCompleted)
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadProgressUpdate.rawValue), object: nil, userInfo: ["progress":progress])
-                    }
-                    upload.responseJSON { response in
-                        
-                        if let json = response.result.value as? [String:Any] {
-                           if let stateCodeInt = json["code"] as? Int {
-                            if stateCodeInt == 0{
-                                if let data = json["data"] as? [String:String]{
-                                     NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadSuccess.rawValue), object: nil, userInfo: data)
-                                    return;
-                                }
-                               }
-                            }
+                DispatchQueue.main.async {
+                    switch encodingResult {
+                    case .success(let upload, _, _):
+                        upload.uploadProgress { progress in
+                            print(progress)
+                            //                        progressCallback(progress.fractionCompleted)
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadProgressUpdate.rawValue), object: nil, userInfo: ["progress":progress])
                         }
+                        upload.responseJSON { response in
+                            
+                            if let json = response.result.value as? [String:Any] {
+                                print(json)
+                                if let stateCodeInt = json["code"] as? Int {
+                                    if stateCodeInt == 0{
+                                        if let data = json["data"] as? [String:String]{
+                                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadSuccess.rawValue), object: nil, userInfo: data)
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadFailure.rawValue), object: nil, userInfo: nil)
+                            
+                        }
+                    case .failure(let encodingError):
+                        print(encodingError)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadFailure.rawValue), object: nil, userInfo: nil)
-                        
                     }
-                case .failure(let encodingError):
-                    print(encodingError)
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: KNotificationName.uploadFailure.rawValue), object: nil, userInfo: nil)
                 }
             })
            
@@ -95,10 +98,10 @@ class UploadManager: NSObject {
     
     func caculateTencentSign() -> String? {
         // 数据
-        let appid = "1255605989"
-        let bucket = "note"
-        let secret_id = "AKIDXI7mFIW4kGAutn5HyYxSt9FvWxGRrIF8"
-        let secret_key = "41nTyHUaWHsNiy3xgEetxqa9XkmcQfqs"
+        let appid = SettingManager.shareManager.tencentSetting?.appid ?? ""
+        let bucket = SettingManager.shareManager.tencentSetting?.bucketName ?? ""
+        let secret_id = SettingManager.shareManager.tencentSetting?.secret_id ?? ""
+        let secret_key = SettingManager.shareManager.tencentSetting?.secret_key ?? ""
         let timeArray = self.getCurrentTimestamp()
         let expireStr = timeArray.lastObject ?? ""
         let nowStr = timeArray.firstObject ?? ""

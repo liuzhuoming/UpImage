@@ -9,5 +9,5 @@ target 'UpImage' do
 
   # Pods for UpImage
  pod 'Alamofire', '~> 4.5'
- pod 'SnapKit', '~> 4.0.0'
+#  pod 'SnapKit', '~> 4.0.0'
 end

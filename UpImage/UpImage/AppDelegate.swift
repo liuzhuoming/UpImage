@@ -25,10 +25,6 @@ class AppDelegate: NSObject, NSApplicationDelegate,NSPopoverDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         self.addStatuItem();
-        
-        
-        UploadManager.shareManager.caculateTencentSign();
-        
         weak var weakSelf = self
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: NSPopoverEvent.open.rawValue), object: nil, queue: OperationQueue.main) { (noti) in
             weakSelf?.openPopover(btn: (weakSelf?.statuItem.button)!)

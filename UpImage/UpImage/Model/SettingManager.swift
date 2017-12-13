@@ -41,12 +41,16 @@ class SettingManager: NSObject {
     static let shareManager = SettingManager()
     var tencentSetting : Tencent?
     var setting:[String:NSDictionary]
+    var isMarkdown:Bool = false
+    
+    
     override init() {
         if let set = UserDefaults.standard.value(forKey: "Setting")  {
             setting = set as! [String : NSDictionary]
         }else{
             setting = [String:NSDictionary]()
         }
+        self.isMarkdown = UserDefaults.standard.bool(forKey: "MarkDown")
         print(setting);
         
         if let tcDict = setting["Tencent"] {
@@ -59,7 +63,6 @@ class SettingManager: NSObject {
                                           secret_id:tcDict["secret_id"]as!String,
                                           secret_key:tcDict["secret_key"]as!String )
         }
-        
         super.init()
     }
     

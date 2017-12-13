@@ -44,29 +44,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UpImage/Model/UploadManager.swift"
-            timestampString = "534754832.338158"
+            timestampString = "534765728.745735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "uploadToTencent(data:fileName:progressCallback:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "UpImage/Model/SettingManager.swift"
-            timestampString = "534754832.338278"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "hosturl"
-            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
